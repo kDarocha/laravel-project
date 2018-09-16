@@ -13,6 +13,8 @@ return [
     |
     */
 
-    'test' => 'Ceci est un test',
+    'about_us' => 'A propos',
+    'products' => 'Produits',
+    'contact' => 'contact'
 
 ];
