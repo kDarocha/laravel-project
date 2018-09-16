@@ -20,6 +20,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 
     Route::get('/products', 'FrontController@products')->name('products');
 
+    Route::get('/product/{slug}', [
+        'uses' => 'FrontController@SingleProduct',
+        'as' => 'product.single'
+    ]);
+
     Route::get('/contact', function() {
         return view('contact');
     })->name('contact');

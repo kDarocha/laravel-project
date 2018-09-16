@@ -2309,7 +2309,9 @@ img{
 #search-icon {
     display: flex;
     width: 50px;
-    height: auto;
+    height: 100%;
+    top: 0;
+    align-items: center;
 }
 
 
