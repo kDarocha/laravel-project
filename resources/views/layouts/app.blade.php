@@ -51,24 +51,6 @@
 <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
 <!-- END SCROLL TOP BUTTON -->
 
-<!-- Start header -->
-<header id="header">
-    <!-- header top search -->
-    <div class="header-top">
-        <div class="container">
-            <form action="">
-                <div id="search">
-                    <input type="text" placeholder="Type your search keyword here and hit Enter..." name="s" id="m_search" style="display: inline-block;">
-                    <button type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</header>
-<!-- End header -->
-
 <!-- BEGIN MENU -->
 <section id="menu-area">
     <nav class="navbar navbar-default" role="navigation">
@@ -90,14 +72,14 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
                     <li class="{{ Request::path() == session('applocale') ? 'active' : '' }}"><a href="/">Home</a></li>
-                    <li class="{{ Request::path() == session('applocale') . '/about-us' ? 'active' : '' }}"><a href="{{ route('about-us') }}">About us</a></li>
-                    <li><a href="service.html">Products</a></li>
-                    <li><a href="contact.html">Contacts</a></li>
+                    <li class="{{ Request::path() == session('applocale') . '/about-us' ? 'active' : '' }}"><a href="{{ route('about-us') }}">{{ trans('customlang.about_us') }}</a></li>
+                    <li><a href="{{ route('products') }}">{{ trans('customlang.products') }}</a></li>
+                    <li><a href="{{ route('contact') }}">{{ trans('customlang.contact') }}</a></li>
                 </ul>
-                <a href="#" id="search-icon">
-                    <i class="fa fa-search">
-                    </i>
-                </a>
+                <div href="#" id="search-icon">
+                    <a href="/fr/"><img width="100%" src="{{ asset('images/flags/fr.png') }}" alt=""></a>
+                    <a href="/en/" style="margin-left: 10px"><img width="120%" src="{{ asset('images/flags/en.png') }}" alt=""></a>
+                </div>
             </div>
         </div>
     </nav>

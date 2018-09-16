@@ -14,13 +14,15 @@
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('home');
+    Route::get('/', 'FrontController@index')->name('home');
 
-    Route::get('/about-us', function() {
-        return view('about-us');
-    })->name('about-us');
+    Route::get('/about-us', 'FrontController@about')->name('about-us');
+
+    Route::get('/products', 'FrontController@products')->name('products');
+
+    Route::get('/contact', function() {
+        return view('contact');
+    })->name('contact');
 });
 
 Auth::routes();

@@ -2306,6 +2306,11 @@ img{
   padding: 10px 15px;
 }
 
+#search-icon {
+    display: flex;
+    width: 50px;
+    height: auto;
+}
 
 
 /*======================///////////////
