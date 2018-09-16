@@ -22,4 +22,10 @@ class FrontController extends Controller
         return view('products')
             ->with('products', Product::orderBy('id', 'desc')->get());
     }
+
+    public function SingleProduct($slug)
+    {
+        return view('single-product')
+            ->with('product', Product::where('slug', $slug)->get()->first());
+    }
 }
