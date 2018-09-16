@@ -24,3 +24,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         return view('contact');
     })->name('contact');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
