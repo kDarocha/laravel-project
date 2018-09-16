@@ -22,6 +22,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         return view('about-us');
     })->name('about-us');
 });
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::get('/', 'HomeController@index')->name('admin.home');
+});
