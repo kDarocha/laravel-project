@@ -1,96 +1,88 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+@section('content')
+    <!-- Start Feature -->
+    <section id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-area">
+                        <h2 class="title">PEW INTERNATIONAL</h2>
+                        <span class="line"></span>
+                        <p>We are a representative agency of a Brazilian Cooperative which is the leader of 23 sugar refineries, we sell sugar all over the world.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </section>
+    <!-- End Feature -->
+    <!-- Start latest news -->
+    <section id="latest-news">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-area">
+                        <h2 class="title">Latest Products</h2>
+                        <span class="line"></span>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="latest-news-content">
+                        <div class="row">
+                            <!-- start single latest news -->
+                            <div class="col-md-4">
+                                <article class="blog-news-single">
+                                    <div class="blog-news-img">
+                                        <a href="blog-single-with-right-sidebar.html"><img src="{{ asset('images/products/tomate.jpg') }}" alt="image"></a>
+                                    </div>
+                                    <div class="blog-news-title">
+                                        <h2><a href="blog-single-with-right-sidebar.html">All about writing story</a></h2>
+                                        <p>By <a class="blog-author" href="#">John Powell</a> <span class="blog-date">|18 October 2015</span></p>
+                                    </div>
+                                    <div class="blog-news-details">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
+                                        <a class="blog-more-btn" href="blog-single-with-right-sidebar.html">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- start single latest news -->
+                            <div class="col-md-4">
+                                <article class="blog-news-single">
+                                    <div class="blog-news-img">
+                                        <a href="blog-single-with-right-sidebar.html"><img src="{{ asset('images/blog-img-2.jpg') }}" alt="image"></a>
+                                    </div>
+                                    <div class="blog-news-title">
+                                        <h2><a href="blog-single-with-right-sidebar.html">Best Mobile Device</a></h2>
+                                        <p>By <a class="blog-author" href="#">John Powell</a> <span class="blog-date">|18 October 2015</span></p>
+                                    </div>
+                                    <div class="blog-news-details">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
+                                        <a class="blog-more-btn" href="blog-single-with-right-sidebar.html">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- start single latest news -->
+                            <div class="col-md-4">
+                                <article class="blog-news-single">
+                                    <div class="blog-news-img">
+                                        <a href="blog-single-with-right-sidebar.html"><img src="{{ asset('images/blog-img-3.jpg') }}" alt="image"></a>
+                                    </div>
+                                    <div class="blog-news-title">
+                                        <h2><a href="blog-single-with-right-sidebar.html">Personal Note Details</a></h2>
+                                        <p>By <a class="blog-author" href="#">John Powell</a> <span class="blog-date">|18 October 2015</span></p>
+                                    </div>
+                                    <div class="blog-news-details">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
+                                        <a class="blog-more-btn" href="blog-single-with-right-sidebar.html">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End latest news -->
+@endsection
