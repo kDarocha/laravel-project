@@ -65,14 +65,14 @@
                 </button>
                 <!-- LOGO -->
                 <!-- TEXT BASED LOGO -->
-                <a class="navbar-brand" href="/">Pew international</a>
+                <a class="navbar-brand" href="{{ route('home') }}">Pew international</a>
                 <!-- IMG BASED LOGO  -->
                 <!-- <a class="navbar-brand" href="index.html"><img src="{{ asset('images/logo.png') }}" alt="logo"></a> -->
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-                    <li class="{{ Request::path() == session('applocale') ? 'active' : '' }}"><a href="/">Home</a></li>
-                    <li class="{{ Request::path() == session('applocale') . '/about-us' ? 'active' : '' }}"><a href="{{ route('about-us') }}">{{ trans('customlang.about_us') }}</a></li>
+                    <li class="{{ Request::path() == Lang::locale() ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
+                    <li class="{{ Request::path() == Lang::locale() . '/about-us' ? 'active' : '' }}"><a href="{{ route('about-us') }}">{{ trans('customlang.about_us') }}</a></li>
                     <li><a href="{{ route('products') }}">{{ trans('customlang.products') }}</a></li>
                     <li><a href="{{ route('contact') }}">{{ trans('customlang.contact') }}</a></li>
                 </ul>
@@ -85,45 +85,6 @@
     </nav>
 </section>
 <!-- END MENU -->
-
-<!-- Start slider -->
-<section id="slider">
-    <div class="main-slider">
-        <div class="single-slide">
-            <img src="{{ asset('images/sugar.jpg') }}" alt="img">
-            <div class="slide-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="slide-article">
-                                <h1 class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s">Creative Design & Best Feature</h1>
-                                <p class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.75s">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
-                                <a class="read-more-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s" href="#">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="single-slide">
-            <img src="{{ asset('images/sugar_2.jpg') }}" alt="img">
-            <div class="slide-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="slide-article">
-                                <h1 class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s">We are Best Team & Support you always</h1>
-                                <p class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.75s">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
-                                <a class="read-more-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s" href="#">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End slider -->
 
 @yield('content')
 

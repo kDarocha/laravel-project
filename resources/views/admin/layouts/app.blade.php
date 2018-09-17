@@ -1,8 +1,9 @@
 <html>
 <head>
     <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/admin.css') }}">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/admin.css') }}">
 </head>
 <body>
 <div class="container">
@@ -33,7 +34,10 @@
 <nav class="application-nav">
     <div class="container">
         <ul>
-            <li class=""><a href="/admin"><span class="fa fa-home"></span><span class="text">Nouveau Produit</span></a></li>
+            <li><a href="{{ route('admin.home') }}"><span class="fa fa-home"></span><span class="text">Home page</span></a></li>
+            <li><a href="{{ route('admin.about') }}"><span class="fa fa-home"></span><span class="text">About us</span></a></li>
+            <li><a href="{{ route('admin.products') }}"><span class="fa fa-home"></span><span class="text">Nouveau Produit</span></a></li>
+            <li><a href="{{ route('admin.contact') }}"><span class="fa fa-home"></span><span class="text">Contact</span></a></li>
         </ul>
     </div>
 </nav>

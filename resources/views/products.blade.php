@@ -8,7 +8,7 @@
                 <div class="row">
                     <!-- start single latest news -->
                     @foreach($products as $product)
-                        <div class="col-md-12">
+                        <div class="col-md-6 col-sm-12">
                             <article class="blog-news-single">
                                 <div class="blog-news-img">
                                     <a href="{{ route('product.single', ['slug' => $product->slug]) }}"><img src="{{ asset('/' . $product->picture) }}" alt="image"></a>
