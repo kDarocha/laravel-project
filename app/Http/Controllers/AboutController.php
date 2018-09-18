@@ -9,6 +9,6 @@ class AboutController extends Controller
 {
     public function index()
     {
-        return view('admin.about')->with('about', About::take(1)->get()->first());
+        return view('admin.about')->with('about', About::first());
     }
 }

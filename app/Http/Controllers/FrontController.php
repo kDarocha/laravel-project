@@ -15,7 +15,7 @@ class FrontController extends Controller
 
     public function about()
     {
-        return view('about-us')->with('about', About::take(1)->get()->first());
+        return view('about-us')->with('about', About::first());
     }
 
     public function products()
