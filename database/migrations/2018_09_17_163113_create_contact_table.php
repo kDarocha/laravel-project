@@ -26,6 +26,6 @@ class CreateContactTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact');
+        Schema::dropIfExists('contacts');
     }
 }

@@ -11,7 +11,7 @@ class ContactTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('contact')->insert([
+        DB::table('contacts')->insert([
 
         ]);
     }

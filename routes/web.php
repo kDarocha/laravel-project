@@ -35,6 +35,8 @@ Auth::routes();
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', 'HomeController@index')->name('admin.home');
     Route::get('/about', 'AboutController@index')->name('admin.about');
-    Route::get('/products', 'ProductController@index')->name('admin.products');
+    Route::get('/products/create', 'ProductController@index')->name('admin.products.create');
+    Route::get('/products', 'ProductController@index')->name('admin.products.list');
+    Route::get('/products/trash', 'ProductController@index')->name('admin.products.trash');
     Route::get('/contact', 'ContactController@index')->name('admin.contact');
 });

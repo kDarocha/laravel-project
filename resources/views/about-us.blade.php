@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="feature-content wow zoomIn">
                     <div class="col-md-6">
-                        {{ $about->content }}
+                        {!! $about->content !!}
                     </div>
                     <div class="col-md-6">
                         <img style="width: 100%" src="{{ asset('images/about.jpg') }}" alt="about us">
