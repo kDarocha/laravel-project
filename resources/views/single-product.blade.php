@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-md-9">
                         <h2>{{ $product->title }}</h2>
-                        <p>{{ $product->description }}</p>
+                        <p>{!! $product->description !!}</p>
                     </div>
                 </div>
                 <div class="row blog-news-details blog-single-details">
