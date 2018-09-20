@@ -15,6 +15,6 @@ return [
 
     'about_us' => 'A propos',
     'products' => 'Produits',
-    'contact' => 'contact'
-
+    'contact' => 'contact',
+    'read_more' => 'Lire plus',
 ];
