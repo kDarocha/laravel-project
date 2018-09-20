@@ -25,7 +25,7 @@
             <input id="picture" name="picture" type="file" class="form-control">
         </div>
         <div class="form-group">
-            <img width="35%" src="/{{ $about->picture }}" alt="About us">
+            <img width="35%" src="{{ $about->picture }}" alt="About us">
         </div>
 
         <div class="form-group">
