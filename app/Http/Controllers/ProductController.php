@@ -135,4 +135,13 @@ class ProductController extends Controller
     {
         return view('admin.products.trashed')->with('products', Product::onlyTrashed()->get());
     }
+
+    public function photoDestroy($id)
+    {
+        $picture = ProductsPhoto::find($id);
+
+        $picture->delete();
+
+        return redirect()->back();
+    }
 }

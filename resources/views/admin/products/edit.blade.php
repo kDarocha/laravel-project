@@ -68,23 +68,27 @@
         <div class="form-group">
             <input name="photos[]" type="file" class="form-control" multiple>
         </div>
-        <div class="form-group">
-            <div class="row">
-                @foreach($product->productsPhotos as $photo)
-                    <div class="col-md-2">
-                        <div class="">
-                            <img width="100%" src="{{ $photo->picture }}" alt="{{ $product->title }}">
-                        </div>
-                        <button class="btn btn-danger">Supprimer</button>
-                    </div>
-                @endforeach
-            </div>
-        </div>
 
         <div class="form-group">
             <button class="btn btn-primary">Valider</button>
         </div>
     </form>
+
+    <div class="form-group">
+            <div class="row">
+                @foreach($product->productsPhotos as $photo)
+                    <form method="post" action="{{ route('admin.products.photos.destroy', ['id' => $photo->id]) }}">
+                        @csrf
+                        <div class="col-md-2">
+                            <div class="">
+                                <img width="100%" src="{{ $photo->picture }}" alt="{{ $product->title }}">
+                            </div>
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </div>
+                    </form>
+                @endforeach
+            </div>
+    </div>
 @endsection
 
 @section('script')
