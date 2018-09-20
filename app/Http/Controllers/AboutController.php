@@ -22,13 +22,8 @@ class AboutController extends Controller
         $about = About::first();
 
         if ($request->hasFile('picture')) {
-            $picture = $request->picture;
-
-            $pictureNewName = time() . $picture->getClientOriginalName();
-
-            $picture->move('uploads/about', $pictureNewName);
-
-            $about->picture = 'uploads/about/' . $pictureNewName;
+            $picture = $request->picture->store('public/photos');
+            $about->picture = str_replace('public/', '/storage/', $picture);
         }
 
         $about->translate('fr')->content = $request->content_fr;

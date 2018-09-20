@@ -11,7 +11,7 @@
                         <div class="col-md-6 col-sm-12">
                             <article class="blog-news-single">
                                 <div class="blog-news-img">
-                                    <a href="{{ route('product.single', ['slug' => $product->slug]) }}"><img src="{{ asset('/' . $product->picture) }}" alt="image"></a>
+                                    <a href="{{ route('product.single', ['slug' => $product->slug]) }}"><img src="{{ $product->picture }}" alt="image"></a>
                                 </div>
                                 <div class="blog-news-title">
                                     <h2><a href="{{ $product->slug }}">{{ $product->title }}</a></h2>

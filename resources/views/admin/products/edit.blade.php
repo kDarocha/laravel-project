@@ -61,7 +61,7 @@
             <input type="file" class="form-control">
         </div>
         <div class="form-group">
-            <img width="20%" src="/{{ $product->picture }}" alt="Product picture">
+            <img width="20%" src="{{ $product->picture }}" alt="Product picture">
         </div>
 
         <div class="form-group">
@@ -72,7 +72,7 @@
                 @foreach($product->productsPhotos as $photo)
                     <div class="col-md-2">
                         <div class="">
-                            <img width="100%" src="/{{ $photo->picture }}" alt="{{ $product->title }}">
+                            <img width="100%" src="{{ $photo->picture }}" alt="{{ $product->title }}">
                         </div>
                         <button class="btn btn-danger">Supprimer</button>
                     </div>

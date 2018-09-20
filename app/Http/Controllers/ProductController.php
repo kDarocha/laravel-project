@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\ProductsPhoto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -29,15 +31,12 @@ class ProductController extends Controller
             'picture' => 'required|image',
         ]);
 
-        $picture = $request->picture;
-
-        $pictureNewName = time() . $picture->getClientOriginalName();
-
-        $picture->move('uploads/products', $pictureNewName);
+        $picture = $request->picture->store('public/photos');
+        $picturePath = str_replace('public/', '/storage/', $picture);
 
         $data = [
             'slug' => str_slug($request->title_en),
-            'picture' => 'uploads/products/' . $pictureNewName,
+            'picture' => $picturePath,
             'fr' => [
                 'title' => $request->title_fr,
                 'description' => $request->description_fr,
@@ -50,7 +49,22 @@ class ProductController extends Controller
             ],
         ];
 
-        Product::create($data);
+        $product = Product::create($data);
+
+        foreach($request->file as $file) {
+            list($baseType, $image) = explode(';', $file);
+            list(, $image) = explode(',', $image);
+
+            $image = base64_decode($image);
+            $imageName = str_random(30) . '.png';
+
+            Storage::put('public/photos/' . $imageName, $image, 'public');
+
+            ProductsPhoto::create([
+                'product_id' => $product->id,
+                'picture' => '/storage/photos/' . $imageName,
+            ]);
+        }
 
         return redirect()->route('admin.products');
     }

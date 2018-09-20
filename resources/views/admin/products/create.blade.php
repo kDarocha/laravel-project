@@ -58,11 +58,20 @@
         </div>
 
         <div class="form-group">
-            <input type="file" name="picture" class="form-control">
+
         </div>
 
         <div class="form-group">
-            <input name="photos[]" type="file" class="form-control" multiple>
+            <input id="photos" type="file" name="picture" class="form-control">
+        </div>
+
+        <div class="files"></div>
+
+        <div class="dropzone dropzone-file-area" id="fileUpload">
+            <div class="dz-default dz-message">
+                <h3 class="sbold">Drop files here to upload</h3>
+                <span>You can also click to open file browser</span>
+            </div>
         </div>
 
         <div class="form-group">
@@ -72,9 +81,36 @@
 @endsection
 
 @section('script')
+    <script src="{{ asset('js/admin/dropzone.js') }}"></script>
+
     <script>
       $(function() {
+        var counter = 0;
+
         $('textarea').froalaEditor();
+
+        Dropzone.options.fileUpload = {
+          url: 'blackHole.php',
+          forceChunking: true,
+          addRemoveLinks: true,
+          accept: function(file) {
+            var fileReader = new FileReader();
+
+            fileReader.readAsDataURL(file);
+            fileReader.onloadend = function() {
+              var content = fileReader.result;
+              $('.files').append('<input name="file[' + counter + ']" hidden value="'+ content +'" />');
+              file.previewElement.classList.add("dz-success");
+              counter++;
+            };
+            file.previewElement.classList.add("dz-complete");
+          }
+        }
       });
     </script>
+@endsection
+
+@section('style')
+    <link href="{{ asset('css/admin/dropzone.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/admin/basic.css') }}" rel="stylesheet" />
 @endsection

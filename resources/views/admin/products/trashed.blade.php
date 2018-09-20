@@ -5,7 +5,7 @@
         <div class="panel">
             <div class="panel-body">
                 <div class="col-md-2">
-                    <img width="100%" src="{{ asset('/' . $product->picture) }}" alt="">
+                    <img width="100%" src="{{ $product->picture }}" alt="">
                 </div>
                 <div class="col-md-8">
                     <h4>{{ $product->title }}</h4>
