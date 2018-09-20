@@ -67,7 +67,7 @@
 
         <div class="files"></div>
 
-        <div class="dropzone dropzone-file-area" id="fileUpload">
+        <div class="dropzone dropzone-file-area form-group" id="fileUpload">
             <div class="dz-default dz-message">
                 <h3 class="sbold">Drop files here to upload</h3>
                 <span>You can also click to open file browser</span>

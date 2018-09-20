@@ -40,7 +40,6 @@
                 @endforeach
             </div>
 
-
             <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" style="max-width: 600px; max-height: 600px;">
                     <div class="modal-content">
@@ -51,7 +50,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="row">
-                                <img id="image-gallery-image" class="img-responsive col-md-12" src="" style="object-fit: cover; height: 100%;">
+                                <img id="image-gallery-image" class="img-responsive col-md-12" src="" style="object-fit: cover; max-height: 100%;">
                             </div>
                         </div>
                         <div class="modal-footer">

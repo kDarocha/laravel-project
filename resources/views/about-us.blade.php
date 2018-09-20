@@ -9,7 +9,7 @@
                         {!! $about->content !!}
                     </div>
                     <div class="col-md-6">
-                        <img style="width: 100%" src="{{ asset('images/about.jpg') }}" alt="about us">
+                        <img style="width: 100%" src="{{ $about->picture  }}" alt="about us">
                     </div>
                 </div>
             </div>

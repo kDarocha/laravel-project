@@ -65,8 +65,13 @@
             <img width="20%" src="{{ $product->picture }}" alt="Product picture">
         </div>
 
-        <div class="form-group">
-            <input name="photos[]" type="file" class="form-control" multiple>
+        <div class="files"></div>
+
+        <div class="dropzone dropzone-file-area form-group" id="fileUpload">
+            <div class="dz-default dz-message">
+                <h3 class="sbold">Drop files here to upload</h3>
+                <span>You can also click to open file browser</span>
+            </div>
         </div>
 
         <div class="form-group">
@@ -75,26 +80,53 @@
     </form>
 
     <div class="form-group">
-            <div class="row">
-                @foreach($product->productsPhotos as $photo)
-                    <form method="post" action="{{ route('admin.products.photos.destroy', ['id' => $photo->id]) }}">
-                        @csrf
-                        <div class="col-md-2">
-                            <div class="">
-                                <img width="100%" src="{{ $photo->picture }}" alt="{{ $product->title }}">
-                            </div>
-                            <button type="submit" class="btn btn-danger">Supprimer</button>
+        <div class="row">
+            @foreach($product->productsPhotos as $photo)
+                <form method="post" action="{{ route('admin.products.photos.destroy', ['id' => $photo->id]) }}">
+                    @csrf
+                    <div class="col-md-2" style="margin-bottom: 25px;">
+                        <div style="width: 200px; height: 200px;">
+                            <img width="100%" height="100%" style="object-fit: cover;" src="{{ $photo->picture }}" alt="{{ $product->title }}">
                         </div>
-                    </form>
-                @endforeach
-            </div>
+                        <button style="position: absolute; top: 4px; right: 20px; padding: 5px 10px;" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                    </div>
+                </form>
+            @endforeach
+        </div>
     </div>
 @endsection
 
 @section('script')
+    <script src="{{ asset('js/admin/dropzone.js') }}"></script>
+
     <script>
       $(function() {
+        var counter = 0;
+
         $('textarea').froalaEditor();
+
+        Dropzone.options.fileUpload = {
+          url: 'blackHole.php',
+          forceChunking: true,
+          addRemoveLinks: true,
+          accept: function (file) {
+            var fileReader = new FileReader();
+
+            fileReader.readAsDataURL(file);
+            fileReader.onloadend = function () {
+              var content = fileReader.result;
+              $('.files').append('<input name="file[' + counter + ']" hidden value="' + content + '" />');
+              file.previewElement.classList.add("dz-success");
+              counter++;
+            };
+            file.previewElement.classList.add("dz-complete");
+          }
+        }
       });
     </script>
+@endsection
+
+@section('style')
+    <link href="{{ asset('css/admin/dropzone.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/admin/basic.css') }}" rel="stylesheet" />
 @endsection

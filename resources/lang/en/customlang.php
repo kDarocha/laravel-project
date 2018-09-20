@@ -15,6 +15,7 @@ return [
 
     'about_us' => 'About us',
     'products' => 'Products',
-    'contact' => 'contact'
+    'contact' => 'contact',
+    'read_more' => 'Read More',
 
 ];
