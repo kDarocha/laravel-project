@@ -74,13 +74,13 @@
                                 <div class="col-md-4">
                                     <article class="blog-news-single">
                                         <div class="blog-news-img">
-                                            <a href="{{ route('product.single', ['slug' => $product->slug]) }}"><img src="{{ asset('/' . $product->picture) }}" alt="image"></a>
+                                            <a href="{{ route('product.single', ['slug' => $product->slug]) }}"><img src="{{ asset($product->picture) }}" alt="image"></a>
                                         </div>
                                         <div class="blog-news-title">
                                             <h2><a href="{{ route('product.single', ['slug' => $product->slug]) }}">{{ $product->title }}</a></h2>
                                         </div>
                                         <div class="blog-news-details">
-                                            <p>{{ $product->description }}</p>
+                                            <p>{!! $product->description !!}</p>
                                             <a class="blog-more-btn" href="{{ route('product.single', ['slug' => $product->slug]) }}">Read More <i class="fa fa-long-arrow-right"></i></a>
                                         </div>
                                     </article>
