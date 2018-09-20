@@ -30,6 +30,7 @@ Auth::routes();
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', 'HomeController@index')->name('admin.home');
     Route::get('/about', 'AboutController@index')->name('admin.about');
+    Route::post('/about/update', 'AboutController@update')->name('admin.about.update');
     Route::get('/products/create', 'ProductController@create')->name('admin.products.create');
     Route::get('/products', 'ProductController@index')->name('admin.products');
     Route::get('/products/edit/{id}', 'ProductController@edit')->name('admin.products.edit');

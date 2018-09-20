@@ -68,9 +68,16 @@
             <input name="photos[]" type="file" class="form-control" multiple>
         </div>
         <div class="form-group">
-            @foreach($product->productsPhotos as $photo)
-                <img width="20%" src="/{{ $photo->picture }}" alt="{{ $product->title }}">
-            @endforeach
+            <div class="row">
+                @foreach($product->productsPhotos as $photo)
+                    <div class="col-md-2">
+                        <div class="">
+                            <img width="100%" src="/{{ $photo->picture }}" alt="{{ $product->title }}">
+                        </div>
+                        <button class="btn btn-danger">Supprimer</button>
+                    </div>
+                @endforeach
+            </div>
         </div>
 
         <div class="form-group">

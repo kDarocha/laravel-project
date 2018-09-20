@@ -1,7 +1,8 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <form>
+    <form action="{{ route('admin.about.update') }}" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="accordion">
             <div class="about-content-wrapper panel">
                 <div class="panel-heading">
@@ -9,22 +10,26 @@
                 </div>
                 <div id="collapse-about-content" class="panel-body collapse">
                     <div class="form-group">
-                        <label for="about-content-fr">Contenu FR</label>
-                        <textarea name="about-content-fr" id="about-content-fr" cols="30" rows="10" class="form-control">{{ $about->translate('fr')->content }}</textarea>
+                        <label for="content_fr">Contenu FR</label>
+                        <textarea name="content_fr" id="content_fr" cols="30" rows="10" class="form-control">{{ $about->translate('fr')->content }}</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="about-content-en">Contenu EN</label>
-                        <textarea name="about-content-en" id="about-content-en" cols="30" rows="10" class="form-control">{{ $about->translate('en')->content }}</textarea>
+                        <label for="content_en">Contenu EN</label>
+                        <textarea name="content_en" id="content_en" cols="30" rows="10" class="form-control">{{ $about->translate('en')->content }}</textarea>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="form-group">
-            <input id="main-picture" name="name-picture" type="file" class="form-control">
+            <input id="picture" name="picture" type="file" class="form-control">
         </div>
         <div class="form-group">
-            <img width="35%" src="{{ asset('images/about.jpg') }}" alt="About us">
+            <img width="35%" src="/{{ $about->picture }}" alt="About us">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Valider</button>
         </div>
     </form>
 @endsection
