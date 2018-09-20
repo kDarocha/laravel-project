@@ -13,10 +13,10 @@
                 </div>
                 <div class="col-md-2">
                     <div class="col-md-6">
-                        <a class="btn btn-success" href="{{ route('admin.products.edit', ['id' => $product->id]) }}">Restorer</a>
+                        <a class="btn btn-success" href="{{ route('admin.products.restore', ['id' => $product->id]) }}">Restorer</a>
                     </div>
                     <div class="col-md-6">
-                        <a class="btn btn-danger" href="{{ route('admin.products.destroy', ['id' => $product->id]) }}">Supprimer</a>
+                        <a class="btn btn-danger" href="{{ route('admin.products.kill', ['id' => $product->id]) }}">Supprimer</a>
                     </div>
                 </div>
             </div>

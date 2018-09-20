@@ -17,7 +17,7 @@
                                     <h2><a href="{{ $product->slug }}">{{ $product->title }}</a></h2>
                                 </div>
                                 <div class="blog-news-details">
-                                    <p>{{ $product->description }}</p>
+                                    <p>{!! $product->description !!}</p>
                                     <a class="blog-more-btn" href="blog-single-with-right-sidebar.html">Read More <i class="fa fa-long-arrow-right"></i></a>
                                 </div>
                             </article>

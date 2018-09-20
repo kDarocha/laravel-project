@@ -60,8 +60,30 @@ class ProductController extends Controller
         return view('admin.products.edit')->with('product', Product::find($id));
     }
 
-    public function destroy()
+    public function destroy($id)
     {
+        $product = Product::find($id);
+
+        $product->delete();
+
+        return redirect()->back();
+    }
+
+    public function restore($id)
+    {
+        $product = Product::withTrashed()->where('id', $id)->first();
+
+        $product->restore();
+
+        return redirect()->route('admin.products');
+    }
+
+    public function kill($id)
+    {
+        $product = Product::withTrashed()->where('id', $id)->first();
+
+        $product->forceDelete();
+
         return redirect()->back();
     }
 
