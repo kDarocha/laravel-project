@@ -15,6 +15,8 @@ class Product extends Model
 
     protected $dates = ['deleted_at'];
 
+    protected $fillable = ['slug', 'picture'];
+
     public function productsPhotos()
     {
         return $this->hasMany('App\ProductsPhoto');

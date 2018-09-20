@@ -17,6 +17,44 @@ class ProductController extends Controller
         return view('admin.products.create');
     }
 
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'title_fr' => 'required|string',
+            'title_en' => 'required|string',
+            'description_fr' => 'required|string',
+            'description_en' => 'required|string',
+            'content_fr' => 'required|string',
+            'content_en' => 'required|string',
+            'picture' => 'required|image',
+        ]);
+
+        $picture = $request->picture;
+
+        $pictureNewName = time() . $picture->getClientOriginalName();
+
+        $picture->move('uploads/products', $pictureNewName);
+
+        $data = [
+            'slug' => str_slug($request->title_en),
+            'picture' => 'uploads/products/' . $pictureNewName,
+            'fr' => [
+                'title' => $request->title_fr,
+                'description' => $request->description_fr,
+                'content' => $request->content_fr,
+            ],
+            'en' => [
+                'title' => $request->title_en,
+                'description' => $request->description_en,
+                'content' => $request->content_en,
+            ],
+        ];
+
+        Product::create($data);
+
+        return redirect()->route('admin.products');
+    }
+
     public function edit($id)
     {
         return view('admin.products.edit')->with('product', Product::find($id));
