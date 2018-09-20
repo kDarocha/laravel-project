@@ -22,7 +22,7 @@ class CreateContactTranslationsTable extends Migration
             $table->text('infos');
 
             $table->unique(['contact_id', 'locale']);
-            $table->foreign('contact_id')->references('id')->on('contact')->onDelete('cascade');
+            $table->foreign('contact_id')->references('id')->on('contacts')->onDelete('cascade');
             $table->timestamps();
         });
     }

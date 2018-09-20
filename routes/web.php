@@ -37,4 +37,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/products/destroy/{id}', 'ProductController@destroy')->name('admin.products.destroy');
     Route::get('/products/trashed', 'ProductController@trashed')->name('admin.products.trashed');
     Route::get('/contact', 'ContactController@index')->name('admin.contact');
+    Route::post('/contact/update', 'ContactController@update')->name('admin.contact.update');
 });

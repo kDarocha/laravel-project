@@ -1,7 +1,8 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <form>
+    <form action="{{ route('admin.contact.update') }}" method="post">
+        @csrf
         <div class="accordion">
             <div class="title-wrapper panel">
                 <div class="panel-heading">
@@ -9,12 +10,12 @@
                 </div>
                 <div id="collapse-title" class="panel-body collapse">
                     <div class="form-group">
-                        <label for="title-fr">Titre principal FR</label>
-                        <input id="title-fr" name="title-fr" type="text" class="form-control" value="{{ $contact->translate('fr')->title }}" required>
+                        <label for="title_fr">Titre principal FR</label>
+                        <input id="title_fr" name="title_fr" type="text" class="form-control" value="{{ $contact->translate('fr')->title }}" required>
                     </div>
                     <div class="form-group">
-                        <label for="title-en">Titre principal EN</label>
-                        <input id="title-en" name="title-en" type="text" class="form-control" value="{{ $contact->translate('en')->title }}" required>
+                        <label for="title_en">Titre principal EN</label>
+                        <input id="title_en" name="title_en" type="text" class="form-control" value="{{ $contact->translate('en')->title }}" required>
                     </div>
                 </div>
             </div>
@@ -27,12 +28,12 @@
                 </div>
                 <div id="collapse-subtitle" class="panel-body collapse">
                     <div class="form-group">
-                        <label for="subtitle-fr">Sous-titre FR</label>
-                        <input id="subtitle-fr" name="subtitle-fr" type="text" class="form-control" value="{{ $contact->translate('fr')->subtitle }}" required>
+                        <label for="subtitle_fr">Sous-titre FR</label>
+                        <input id="subtitle_fr" name="subtitle_fr" type="text" class="form-control" value="{{ $contact->translate('fr')->subtitle }}" required>
                     </div>
                     <div class="form-group">
-                        <label for="subtitle-en">Sous-titre EN</label>
-                        <input id="subtitle-en" name="subtitle-en" type="text" class="form-control" value="{{ $contact->translate('en')->subtitle }}" required>
+                        <label for="subtitle_en">Sous-titre EN</label>
+                        <input id="subtitle_en" name="subtitle_en" type="text" class="form-control" value="{{ $contact->translate('en')->subtitle }}" required>
                     </div>
                 </div>
             </div>
@@ -45,12 +46,12 @@
                 </div>
                 <div id="collapse-infos" class="panel-body collapse">
                     <div class="form-group">
-                        <label for="infos-fr">Infos FR</label>
-                        <textarea id="infos-fr" name="infos-fr" type="text" class="form-control" required>{{ $contact->translate('fr')->infos }}</textarea>
+                        <label for="infos_fr">Infos FR</label>
+                        <textarea id="infos_fr" name="infos_fr" type="text" class="form-control" required>{{ $contact->translate('fr')->infos }}</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="infos-en">Infos EN</label>
-                        <textarea id="infos-en" name="infos-en" type="text" class="form-control" required>{{ $contact->translate('en')->infos }}</textarea>
+                        <label for="infos_en">Infos EN</label>
+                        <textarea id="infos_en" name="infos_en" type="text" class="form-control" required>{{ $contact->translate('en')->infos }}</textarea>
                     </div>
                 </div>
             </div>
