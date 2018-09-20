@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use App\Product;
 use App\About;
 
@@ -24,9 +25,15 @@ class FrontController extends Controller
             ->with('products', Product::orderBy('id', 'desc')->get());
     }
 
-    public function SingleProduct($slug)
+    public function singleProduct($slug)
     {
         return view('single-product')
             ->with('product', Product::where('slug', $slug)->get()->first());
+    }
+
+    public function contact()
+    {
+        return view('contact')
+            ->with('contact', Contact::first());
     }
 }

@@ -20,14 +20,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 
     Route::get('/products', 'FrontController@products')->name('products');
 
-    Route::get('/product/{slug}', [
-        'uses' => 'FrontController@SingleProduct',
-        'as' => 'product.single'
-    ]);
+    Route::get('/product/{slug}', 'FrontController@singleProduct')->name('product.single');
 
-    Route::get('/contact', function() {
-        return view('contact');
-    })->name('contact');
+    Route::get('/contact', 'FrontController@contact')->name('contact');
 });
 
 Auth::routes();
@@ -35,8 +30,10 @@ Auth::routes();
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', 'HomeController@index')->name('admin.home');
     Route::get('/about', 'AboutController@index')->name('admin.about');
-    Route::get('/products/create', 'ProductController@index')->name('admin.products.create');
-    Route::get('/products', 'ProductController@index')->name('admin.products.list');
-    Route::get('/products/trash', 'ProductController@index')->name('admin.products.trash');
+    Route::get('/products/create', 'ProductController@create')->name('admin.products.create');
+    Route::get('/products', 'ProductController@index')->name('admin.products');
+    Route::get('/products/edit/{id}', 'ProductController@edit')->name('admin.products.edit');
+    Route::get('/products/destroy/{id}', 'ProductController@destroy')->name('admin.products.destroy');
+    Route::get('/products/trashed', 'ProductController@trashed')->name('admin.products.trashed');
     Route::get('/contact', 'ContactController@index')->name('admin.contact');
 });

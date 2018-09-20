@@ -44,12 +44,12 @@
                         <div id="subPages" class="collapse {{ Request::is('admin/products' . '*') ? 'in' :  '' }}">
                             <ul class="nav">
                                 <li><a class="{{ Request::path() == 'admin/products/create' ? 'active' : '' }}" href="{{ route('admin.products.create') }}">Nouveau produit</a></li>
-                                <li><a href="{{ route('admin.products.list') }}">Liste des produits</a></li>
-                                <li><a href="{{ route('admin.products.trash') }}">Poubelle</a></li>
+                                <li><a class="{{ Request::path() == 'admin/products' ? 'active' : '' }}" href="{{ route('admin.products') }}">Liste des produits</a></li>
+                                <li><a class="{{ Request::path() == 'admin/products/trashed' ? 'active' : '' }}" href="{{ route('admin.products.trashed') }}">Poubelle</a></li>
                             </ul>
                         </div>
                     </li>
-                    <li><a href="{{ route('admin.contact') }}" class=""><i class="lnr lnr-cog"></i> <span>Contact</span></a></li>
+                    <li><a href="{{ route('admin.contact') }}" class="{{ Request::path() == 'admin/contact' ? 'active' : '' }}"><i class="lnr lnr-cog"></i> <span>Contact</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -67,11 +67,6 @@
     </div>
     <!-- END MAIN -->
     <div class="clearfix"></div>
-    <footer>
-        <div class="container-fluid">
-            <p class="copyright">&copy; 2017 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>. All Rights Reserved.</p>
-        </div>
-    </footer>
 </div>
 <!-- END WRAPPER -->
 <!-- Javascript -->
