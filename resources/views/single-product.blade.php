@@ -25,20 +25,18 @@
 
     <div class="container">
         <div class="row">
-            <div class="row">
-                @foreach($product->productsPhotos as $photo)
-                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
-                           data-image="{{ $photo->picture }}"
-                           data-target="#image-gallery">
-                            <img class="img-thumbnail"
-                                 src="{{ $photo->picture }}"
-                                 alt="Another alt text"
-                                 style="object-fit: cover; width: 100%; height: 200px; border: none;">
-                        </a>
-                    </div>
-                @endforeach
-            </div>
+            @foreach($product->productsPhotos as $photo)
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                       data-image="{{ $photo->picture }}"
+                       data-target="#image-gallery">
+                        <img class="img-thumbnail"
+                             src="{{ $photo->picture }}"
+                             alt="Another alt text"
+                             style="object-fit: cover; width: 100%; height: 200px; border: none;">
+                    </a>
+                </div>
+            @endforeach
 
             <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" style="max-width: 600px; max-height: 600px;">

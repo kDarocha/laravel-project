@@ -41,7 +41,6 @@
     </section>
     <!-- End slider -->
 
-    <!-- Start Feature -->
     <section id="feature">
         <div class="container">
             <div class="row">
@@ -55,8 +54,7 @@
             </div>
         </div>
     </section>
-    <!-- End Feature -->
-    <!-- Start latest news -->
+
     <section id="latest-news">
         <div class="container">
             <div class="row">
@@ -92,5 +90,20 @@
             </div>
         </div>
     </section>
-    <!-- End latest news -->
+@endsection
+
+@section('style')
+    <style>
+        @media (max-width: 600px) {
+            .main-slider {
+                height: 270px;
+            }
+        }
+
+        .main-slider .single-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
 @endsection

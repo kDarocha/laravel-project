@@ -80,11 +80,11 @@
     </form>
 
     <div class="form-group">
-        <div class="row">
+        <div class="row" style="display: flex; flex-wrap: wrap;">
             @foreach($product->productsPhotos as $photo)
                 <form method="post" action="{{ route('admin.products.photos.destroy', ['id' => $photo->id]) }}">
                     @csrf
-                    <div class="col-md-2" style="margin-bottom: 25px;">
+                    <div class="col-md-2" style="width: auto; margin-bottom: 25px; flex: 1;">
                         <div style="width: 200px; height: 200px;">
                             <img width="100%" height="100%" style="object-fit: cover;" src="{{ $photo->picture }}" alt="{{ $product->title }}">
                         </div>
