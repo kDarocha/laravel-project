@@ -4,9 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SliderTranslation extends Model
+class HomeTranslation extends Model
 {
     public $timestamps = false;
-
-    protected $fillable = ['title', 'description'];
 }

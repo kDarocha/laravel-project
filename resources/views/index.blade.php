@@ -5,38 +5,24 @@
     <!-- Start slider -->
     <section id="slider">
         <div class="main-slider">
-            <div class="single-slide">
-                <img src="{{ asset('images/sugar.jpg') }}" alt="img">
-                <div class="slide-content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="slide-article">
-                                    <h1 class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s">Creative Design & Best Feature</h1>
-                                    <p class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.75s">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
-                                    <a class="read-more-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s" href="#">Read More</a>
+            @foreach($sliders as $slider)
+                <div class="single-slide">
+                    <img src="{{ $slider->picture }}" alt="img">
+                    <div class="slide-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="slide-article">
+                                        <h1 class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s">{{ $slider->title }}</h1>
+                                        <p class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.75s">{!! $slider->description !!}</p>
+                                        <a class="read-more-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s" href="{{ route('product.single', ['slug' => $slider->product->slug]) }}">{{ trans('customlang.read_more') }}</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="single-slide">
-                <img src="{{ asset('images/sugar_2.jpg') }}" alt="img">
-                <div class="slide-content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="slide-article">
-                                    <h1 class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s">We are Best Team & Support you always</h1>
-                                    <p class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.75s">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
-                                    <a class="read-more-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s" href="#">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
     <!-- End slider -->

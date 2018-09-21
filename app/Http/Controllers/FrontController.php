@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Contact;
 use App\Product;
 use App\About;
+use App\Slider;
 
 class FrontController extends Controller
 {
     public function index()
     {
         return view('index')
-            ->with('products', Product::orderBy('id', 'desc')->take(3)->get());
+            ->with('products', Product::orderBy('id', 'desc')->take(3)->get())
+            ->with('sliders', Slider::all());
     }
 
     public function about()

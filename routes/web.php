@@ -45,4 +45,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     Route::get('/contact', 'ContactController@index')->name('admin.contact');
     Route::post('/contact/update', 'ContactController@update')->name('admin.contact.update');
+
+    Route::group(['prefix' => 'sliders'], function() {
+        Route::get('/', 'SliderController@index')->name('admin.home.sliders');
+        Route::get('/create', 'SliderController@create')->name('admin.home.sliders.create');
+        Route::post('/store', 'SliderController@store')->name('admin.home.sliders.store');
+        Route::get('/edit/{id}', 'SliderController@edit')->name('admin.home.sliders.edit');
+        Route::post('/update/{id}', 'SliderController@update')->name('admin.home.sliders.update');
+        Route::get('/destroy/{id}', 'SliderController@destroy')->name('admin.home.sliders.destroy');
+    });
 });
