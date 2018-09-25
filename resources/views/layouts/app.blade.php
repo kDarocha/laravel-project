@@ -78,8 +78,8 @@
                     <li><a href="{{ route('products') }}">{{ trans('customlang.products') }}</a></li>
                     <li><a href="{{ route('contact') }}">{{ trans('customlang.contact') }}</a></li>
                     <li href="#" id="flags" style="display: inline-block;">
-                        <a href="/fr/" style="width: 45px;"><img width="100%" src="{{ asset('images/flags/fr.png') }}" alt=""></a>
-                        <a href="/en/" style="width: 45px;"><img width="100%" src="{{ asset('images/flags/en.png') }}" alt=""></a>
+                        <a href="{{ url('fr') }}" style="width: 45px;"><img width="100%" src="{{ asset('images/flags/fr.png') }}" alt=""></a>
+                        <a href="{{ url('en') }}" style="width: 45px;"><img width="100%" src="{{ asset('images/flags/en.png') }}" alt=""></a>
                     </li>
                 </ul>
             </div>
