@@ -51,19 +51,21 @@ class ProductController extends Controller
 
         $product = Product::create($data);
 
-        foreach($request->file as $file) {
-            list($baseType, $image) = explode(';', $file);
-            list(, $image) = explode(',', $image);
+        if ($request->file) {
+            foreach($request->file as $file) {
+                list($baseType, $image) = explode(';', $file);
+                list(, $image) = explode(',', $image);
 
-            $image = base64_decode($image);
-            $imageName = str_random(30) . '.png';
+                $image = base64_decode($image);
+                $imageName = str_random(30) . '.png';
 
-            Storage::put('public/photos/' . $imageName, $image, 'public');
+                Storage::put('public/photos/' . $imageName, $image, 'public');
 
-            ProductsPhoto::create([
-                'product_id' => $product->id,
-                'picture' => '/storage/photos/' . $imageName,
-            ]);
+                ProductsPhoto::create([
+                    'product_id' => $product->id,
+                    'picture' => '/storage/photos/' . $imageName,
+                ]);
+            }
         }
 
         return redirect()->route('admin.products');
@@ -99,19 +101,21 @@ class ProductController extends Controller
             $product->picture = str_replace('public/', '/storage/', $picture);
         }
 
-        foreach($request->file as $file) {
-            list($baseType, $image) = explode(';', $file);
-            list(, $image) = explode(',', $image);
+        if ($request->file) {
+            foreach($request->file as $file) {
+                list($baseType, $image) = explode(';', $file);
+                list(, $image) = explode(',', $image);
 
-            $image = base64_decode($image);
-            $imageName = str_random(30) . '.png';
+                $image = base64_decode($image);
+                $imageName = str_random(30) . '.png';
 
-            Storage::put('public/photos/' . $imageName, $image, 'public');
+                Storage::put('public/photos/' . $imageName, $image, 'public');
 
-            ProductsPhoto::create([
-                'product_id' => $product->id,
-                'picture' => '/storage/photos/' . $imageName,
-            ]);
+                ProductsPhoto::create([
+                    'product_id' => $product->id,
+                    'picture' => '/storage/photos/' . $imageName,
+                ]);
+            }
         }
 
         $product->save();
