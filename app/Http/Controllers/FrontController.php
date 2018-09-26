@@ -29,8 +29,14 @@ class FrontController extends Controller
 
     public function singleProduct($slug)
     {
+        $product = Product::where('slug', $slug)->get()->first();
+
+        if (empty($product)) {
+            return redirect()->route('products');
+        }
+
         return view('single-product')
-            ->with('product', Product::where('slug', $slug)->get()->first());
+            ->with('product', $product);
     }
 
     public function contact()
