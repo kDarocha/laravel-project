@@ -47,7 +47,7 @@ class SliderController extends Controller
 
         Slider::create($data);
 
-        return redirect()->route('admin.home.sliders.index');
+        return redirect()->route('admin.home.sliders');
     }
 
     public function edit($id)
