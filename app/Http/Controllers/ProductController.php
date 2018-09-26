@@ -95,6 +95,7 @@ class ProductController extends Controller
         $product->translate('fr')->description = $request->description_en;
         $product->translate('fr')->content = $request->content_fr;
         $product->translate('en')->content = $request->content_en;
+        $product->slug = str_slug($request->title_en);
 
         if ($request->hasFile('picture')) {
             $picture = $request->picture->store('public/photos');
