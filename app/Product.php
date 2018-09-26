@@ -21,4 +21,9 @@ class Product extends Model
     {
         return $this->hasMany('App\ProductsPhoto');
     }
+
+    public function sliders()
+    {
+        return $this->hasMany('App\Slider');
+    }
 }

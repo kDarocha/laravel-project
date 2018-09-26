@@ -127,6 +127,10 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
+        foreach($product->sliders as $slider) {
+            $slider->delete();
+        }
+
         $product->delete();
 
         return redirect()->back();
