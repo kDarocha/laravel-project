@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Home;
 use App\Product;
 use App\About;
 use App\Slider;
@@ -13,7 +14,8 @@ class FrontController extends Controller
     {
         return view('index')
             ->with('products', Product::orderBy('id', 'desc')->take(3)->get())
-            ->with('sliders', Slider::all());
+            ->with('sliders', Slider::all())
+            ->with('home', Home::first());
     }
 
     public function about()

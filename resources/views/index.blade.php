@@ -32,9 +32,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="title-area">
-                        <h2 class="title">PEW INTERNATIONAL</h2>
+                        <h2 class="title">{{ $home->title }}</h2>
                         <span class="line"></span>
-                        <p>We are a representative agency of a Brazilian Cooperative which is the leader of 23 sugar refineries, we sell sugar all over the world.</p>
+                        <p>{!! $home->description  !!}</p>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,6 @@
                     <div class="title-area">
                         <h2 class="title">Latest Products</h2>
                         <span class="line"></span>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
                     </div>
                 </div>
                 <div class="col-md-12">
