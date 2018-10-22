@@ -1419,6 +1419,7 @@ img{
   display: inline;
   float: left;
   padding: 0 15px;
+  padding-bottom: 30px;
   width: 100%;
 }
 
