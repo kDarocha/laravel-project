@@ -91,8 +91,8 @@ class ProductController extends Controller
 
         $product->translate('fr')->title = $request->title_fr;
         $product->translate('en')->title = $request->title_en;
-        $product->translate('en')->description = $request->description_fr;
-        $product->translate('fr')->description = $request->description_en;
+        $product->translate('fr')->description = $request->description_fr;
+        $product->translate('en')->description = $request->description_en;
         $product->translate('fr')->content = $request->content_fr;
         $product->translate('en')->content = $request->content_en;
         $product->slug = str_slug($request->title_en);
