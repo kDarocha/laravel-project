@@ -2409,8 +2409,15 @@ img{
   }
 }
 
-
+.navbar-brand {
+    width: 148px;
+    padding: 0;
+}
 @media(max-width:767px ){
+  .navbar-brand {
+    width: 118px;
+    padding: 5px;
+  }
   .header-bottom {    
     padding: 0;   
   }

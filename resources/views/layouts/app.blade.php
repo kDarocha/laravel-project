@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Pew international</title>
+    <title>Arizona</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/icon" href="{{ asset('images/favicon.ico') }}"/>
     <!-- Font Awesome -->
@@ -65,7 +65,7 @@
                 </button>
                 <!-- LOGO -->
                 <!-- TEXT BASED LOGO -->
-                <a class="navbar-brand" href="{{ route('home') }}">Pew international</a>
+                <a class="navbar-brand" href="{{ route('home') }}"><img width="100%" src="{{ asset('images/logo.png') }}"></a>
                 <!-- IMG BASED LOGO  -->
                 <!-- <a class="navbar-brand" href="index.html"><img src="{{ asset('images/logo.png') }}" alt="logo"></a> -->
             </div>
