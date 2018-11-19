@@ -6,9 +6,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="title-area">
-                        <h2 class="title">Have any Questions?</h2>
+                        <h2 class="title">{{ $contact->title }}</h2>
                         <span class="line"></span>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
+                        <p>{{ $contact->subtitle }}</p>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -17,19 +17,7 @@
                             <div class="col-md-4">
                                 <div class="contact-area-left">
                                     <h4>Contact Info</h4>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-                                    <address class="single-address">
-                                        <p>P.O. Box 240000. Huntsville, AL 35813, USA Street address: 305</p>
-                                        <p>support@gmail.com</p>
-                                        <p>+1(06) 778 5468</p>
-                                    </address>
-                                    <div class="footer-right contact-social">
-                                        <a href="index.html"><i class="fa fa-facebook"></i></a>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    </div>
+                                    {!! $contact->infos !!}
                                 </div>
                             </div>
                             <div class="col-md-8">

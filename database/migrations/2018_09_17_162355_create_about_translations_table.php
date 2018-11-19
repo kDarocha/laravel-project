@@ -20,7 +20,7 @@ class CreateAboutTranslationsTable extends Migration
             $table->text('content');
 
             $table->unique(['about_id', 'locale']);
-            $table->foreign('about_id')->references('id')->on('about')->onDelete('cascade');
+            $table->foreign('about_id')->references('id')->on('abouts')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
+use App\Home;
 use App\Product;
 use App\About;
+use App\Slider;
 
 class FrontController extends Controller
 {
     public function index()
     {
         return view('index')
-            ->with('products', Product::orderBy('id', 'desc')->take(3)->get());
+            ->with('products', Product::orderBy('id', 'desc')->take(3)->get())
+            ->with('sliders', Slider::all())
+            ->with('home', Home::first());
     }
 
     public function about()
@@ -24,9 +29,21 @@ class FrontController extends Controller
             ->with('products', Product::orderBy('id', 'desc')->get());
     }
 
-    public function SingleProduct($slug)
+    public function singleProduct($slug)
     {
+        $product = Product::where('slug', $slug)->get()->first();
+
+        if (empty($product)) {
+            return redirect()->route('products');
+        }
+
         return view('single-product')
-            ->with('product', Product::where('slug', $slug)->get()->first());
+            ->with('product', $product);
+    }
+
+    public function contact()
+    {
+        return view('contact')
+            ->with('contact', Contact::first());
     }
 }
